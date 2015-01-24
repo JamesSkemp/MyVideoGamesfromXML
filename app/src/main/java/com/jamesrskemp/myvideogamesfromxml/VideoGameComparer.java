@@ -10,7 +10,7 @@ public class VideoGameComparer implements Comparator<VideoGame> {
 	public int compare(VideoGame x, VideoGame y) {
 		int value = x.title.compareTo(y.title);
 		if (value == 0) {
-			value = x.system.compareTo(y.system);
+			value = x.system().compareTo(y.system());
 		}
 		return value;
 	}

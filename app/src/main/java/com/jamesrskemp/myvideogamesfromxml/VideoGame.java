@@ -6,7 +6,8 @@ package com.jamesrskemp.myvideogamesfromxml;
 public class VideoGame {
 	public long id;
 	public String title;
-	public String system;
+	public String systemConsole;
+	public String systemVersion;
 	public String notes;
 	public String own;
 	public String purchaseDate;
@@ -20,4 +21,8 @@ public class VideoGame {
 	public Boolean beat;
 
 	public VideoGame() { }
+
+	public String system() {
+		return (systemConsole + " " + systemVersion).trim();
+	}
 }

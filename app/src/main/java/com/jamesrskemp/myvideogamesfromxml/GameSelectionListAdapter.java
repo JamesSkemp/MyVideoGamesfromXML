@@ -30,7 +30,7 @@ public class GameSelectionListAdapter extends ArrayAdapter<VideoGame> {
 		title.setText(item.title);
 
 		TextView system = (TextView) convertView.findViewById(R.id.list_game_selection_system);
-		system.setText(item.system);
+		system.setText(item.system());
 
 		title.append(" (Own: " + item.own + ")");
 
