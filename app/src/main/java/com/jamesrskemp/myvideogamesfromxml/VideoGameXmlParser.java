@@ -109,6 +109,7 @@ public class VideoGameXmlParser {
 	private VideoGame readGame(XmlPullParser parser) throws XmlPullParserException, IOException {
 		parser.require(XmlPullParser.START_TAG, ns, "game");
 		VideoGame game = new VideoGame();
+
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if (parser.getEventType() == XmlPullParser.END_TAG && parser.getName() == "game") {
 				continue;
