@@ -8,7 +8,7 @@
     <string name="view_hardware">View Hardware</string>
     <string name="title_activity_games">Video Games</string>
     <string name="title_activity_hardware">Video Game Hardware</string>
-	<string name="activity_games_search">Search</string>
+	<string name="activity_games_search">Title Search</string>
 	<string name="activity_games_search_button">Search</string>
 
 </resources>

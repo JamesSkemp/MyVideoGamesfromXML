@@ -20,11 +20,13 @@ import java.util.List;
 public class GameSelectionListAdapter extends ArrayAdapter<VideoGame> implements Filterable {
 	private List<VideoGame> videoGames = null;
 	private List<VideoGame> originalVideoGames = null;
+	Context context;
 
 	public GameSelectionListAdapter(Context context, List<VideoGame> viewModel) {
 		super(context, 0, viewModel);
 		originalVideoGames = viewModel;
 		videoGames = viewModel;
+		this.context = context;
 	}
 
 	@Override
