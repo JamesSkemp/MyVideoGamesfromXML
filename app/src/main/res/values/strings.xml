@@ -10,5 +10,6 @@
     <string name="title_activity_hardware">Video Game Hardware</string>
 	<string name="activity_games_search">Title Search</string>
 	<string name="activity_games_search_button">Search</string>
+	<string name="title_activity_system_games">Games by System</string>
 
 </resources>

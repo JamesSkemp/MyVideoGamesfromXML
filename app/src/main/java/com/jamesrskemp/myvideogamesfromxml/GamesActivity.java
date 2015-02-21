@@ -1,5 +1,6 @@
 package com.jamesrskemp.myvideogamesfromxml;
 
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -72,6 +73,9 @@ public class GamesActivity extends ActionBarActivity {
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_settings) {
 			return true;
+		} else if (id == R.id.action_system_games) {
+			Intent intent = new Intent(getApplicationContext(), SystemGamesActivity.class);
+			startActivity(intent);
 		}
 
 		return super.onOptionsItemSelected(item);

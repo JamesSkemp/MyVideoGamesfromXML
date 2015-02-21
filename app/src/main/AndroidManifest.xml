@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jamesrskemp.myvideogamesfromxml" >
 
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,7 @@
             android:name=".GamesActivity"
             android:label="@string/title_activity_games"
             android:parentActivityName=".MainActivity"
-	        android:windowSoftInputMode="stateUnchanged">
+            android:windowSoftInputMode="stateUnchanged" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jamesrskemp.myvideogamesfromxml.MainActivity" />
@@ -34,6 +34,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jamesrskemp.myvideogamesfromxml.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SystemGamesActivity"
+            android:label="@string/title_activity_system_games"
+            android:parentActivityName=".GamesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jamesrskemp.myvideogamesfromxml.GamesActivity" />
         </activity>
     </application>
 
