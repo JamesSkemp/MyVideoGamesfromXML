@@ -21,7 +21,8 @@
         <activity
             android:name=".GamesActivity"
             android:label="@string/title_activity_games"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+	        android:windowSoftInputMode="stateUnchanged">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jamesrskemp.myvideogamesfromxml.MainActivity" />

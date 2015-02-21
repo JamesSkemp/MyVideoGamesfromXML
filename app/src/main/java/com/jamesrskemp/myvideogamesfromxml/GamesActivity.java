@@ -45,26 +45,12 @@ public class GamesActivity extends ActionBarActivity {
 		searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				Toast.makeText(getApplicationContext(), "Button pushed: " + actionId, Toast.LENGTH_SHORT).show();
 				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-					Toast.makeText(getApplicationContext(), "Search button pushed.", Toast.LENGTH_SHORT).show();
 					filterData();
 				}
 				return true;
 			}
 		});
-
-		/*searchText.setOnKeyListener(new View.OnKeyListener() {
-			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				Toast.makeText(getApplicationContext(), "Button pushed: " + keyCode, Toast.LENGTH_SHORT).show();
-				if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-					Toast.makeText(getApplicationContext(), "Search button pushed.", Toast.LENGTH_SHORT).show();
-					filterData();
-				}
-				return true;
-			}
-		});*/
 
 		parseData();
 	}
