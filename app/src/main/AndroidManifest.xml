@@ -3,6 +3,8 @@
     package="com.jamesrskemp.myvideogamesfromxml" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -42,6 +44,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jamesrskemp.myvideogamesfromxml.GamesActivity" />
+        </activity>
+        <activity
+            android:name=".DownloadsActivity"
+            android:label="@string/title_activity_downloads"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jamesrskemp.myvideogamesfromxml.MainActivity" />
         </activity>
     </application>
 

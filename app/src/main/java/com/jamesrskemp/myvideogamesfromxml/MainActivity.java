@@ -48,4 +48,9 @@ public class MainActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, HardwareActivity.class);
 		startActivity(intent);
 	}
+
+	public void navigateToDownloads(View view) {
+		Intent intent = new Intent(this, DownloadsActivity.class);
+		startActivity(intent);
+	}
 }
