@@ -83,7 +83,7 @@ public class GamesActivity extends ActionBarActivity {
 
 	public void parseData() {
 		String xmlFileName = "video_games.xml";
-		String filePath = Environment.getExternalStorageDirectory() + "/Download/" + xmlFileName;
+		String filePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getPath()  + "/" + xmlFileName;
 		try {
 			File file = new File(filePath);
 			InputStream fis = null;
