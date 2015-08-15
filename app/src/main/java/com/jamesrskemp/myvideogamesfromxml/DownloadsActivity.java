@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -20,13 +19,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
 public class DownloadsActivity extends ActionBarActivity {
 	private final static String TAG = DownloadsActivity.class.getName();
@@ -201,9 +196,5 @@ public class DownloadsActivity extends ActionBarActivity {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-//		getF
-
-
-
 	}
 }
