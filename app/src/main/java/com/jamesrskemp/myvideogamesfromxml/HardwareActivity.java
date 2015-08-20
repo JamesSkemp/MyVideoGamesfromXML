@@ -1,5 +1,6 @@
 package com.jamesrskemp.myvideogamesfromxml;
 
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +13,9 @@ public class HardwareActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hardware);
+
+		// TODO possibly add filtering later
+		parseData();
 	}
 
 
@@ -35,5 +39,10 @@ public class HardwareActivity extends ActionBarActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void parseData() {
+		String xmlFileName = "videogames.xml";
+		String filePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getPath()  + "/" + xmlFileName;
 	}
 }
