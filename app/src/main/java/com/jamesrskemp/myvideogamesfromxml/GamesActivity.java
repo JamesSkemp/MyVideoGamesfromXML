@@ -33,6 +33,7 @@ import java.util.List;
 
 
 public class GamesActivity extends ActionBarActivity {
+	private final static String TAG = GamesActivity.class.getName();
 
 	private List<VideoGame> videoGames = null;
 
@@ -103,7 +104,7 @@ public class GamesActivity extends ActionBarActivity {
 			listView.setAdapter(gamesAdapter);
 		} catch (Exception ex) {
 			Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
-			Log.e("GamesActivity", "Exception", ex);
+			Log.e(TAG, "Exception", ex);
 		}
 	}
 
@@ -121,7 +122,7 @@ public class GamesActivity extends ActionBarActivity {
 		listView.setAdapter(gamesAdapter);
 
 		//if (!filter.equals("")) {
-			Log.d("GamesActivity", filter.toString());
+			Log.d(TAG, filter.toString());
 			gamesAdapter.getFilter().filter(filter);
 
 			Toast.makeText(getApplicationContext(), listView.getAdapter().getCount() + " results found", Toast.LENGTH_SHORT).show();
