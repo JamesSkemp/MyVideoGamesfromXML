@@ -3,11 +3,23 @@ package com.jamesrskemp.myvideogamesfromxml;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Collections;
+import java.util.List;
 
 
 public class HardwareActivity extends ActionBarActivity {
+	private final static String TAG = HardwareActivity.class.getName();
+
+	private List<VideoGameHardware> videoGameHardware = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,5 +56,15 @@ public class HardwareActivity extends ActionBarActivity {
 	public void parseData() {
 		String xmlFileName = "videogames.xml";
 		String filePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getPath()  + "/" + xmlFileName;
+		try {
+			File file = new File(filePath);
+			InputStream fis = null;
+			fis = new BufferedInputStream(new FileInputStream(file));
+			// TODO everything - includes creating xml parser, list adapter
+
+		} catch (Exception ex) {
+			Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+			Log.e(TAG, "Exception", ex);
+		}
 	}
 }
