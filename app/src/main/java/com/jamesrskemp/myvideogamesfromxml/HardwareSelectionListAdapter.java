@@ -1,19 +1,24 @@
 package com.jamesrskemp.myvideogamesfromxml;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by James on 8/22/2015.
  */
 public class HardwareSelectionListAdapter extends ArrayAdapter<VideoGameHardware> implements Filterable {
+	private final static String TAG = HardwareSelectionListAdapter.class.getName();
+
 	private List<VideoGameHardware> hardware = null;
 	private List<VideoGameHardware> originalHardware = null;
 	Context context;
@@ -46,8 +51,57 @@ public class HardwareSelectionListAdapter extends ArrayAdapter<VideoGameHardware
 		purchase.setText(item.purchaseDate + " " + item.purchasePrice + " " + item.purchasePlace);
 
 		TextView notes = (TextView) convertView.findViewById(R.id.list_hardware_selection_notes);
-		notes.setText(item.notes);
+		notes.setText(item.notes.trim());
 
 		return convertView;
+	}
+
+	@Override
+	public int getCount() {
+		return hardware.size();
+	}
+
+	@Override
+	public VideoGameHardware getItem(int position) {
+		return hardware.get(position);
+	}
+
+	@Override
+	public Filter getFilter() {
+		return new Filter() {
+			@Override
+			protected Filter.FilterResults performFiltering(CharSequence constraint) {
+				String filter = constraint.toString().toLowerCase();
+
+				FilterResults results = new FilterResults();
+				final ArrayList<VideoGameHardware> foundHardware = new ArrayList<VideoGameHardware>(originalHardware.size());
+
+				VideoGameHardware hardwareChecking;
+				for (int i = 0; i < originalHardware.size(); i++) {
+					hardwareChecking = originalHardware.get(i);
+					if (hardwareChecking.name.toLowerCase().contains(filter)) {
+						foundHardware.add(hardwareChecking);
+					}
+				}
+
+				Log.d(TAG, String.valueOf(foundHardware.size()));
+
+				results.values = foundHardware;
+				results.count = foundHardware.size();
+
+				return results;
+			}
+
+			@SuppressWarnings("unchecked")
+			@Override
+			protected void publishResults(CharSequence constraint, FilterResults results) {
+				if (results.count == 0) {
+					notifyDataSetInvalidated();
+				} else {
+					hardware = (List<VideoGameHardware>)results.values;
+					notifyDataSetChanged();
+				}
+			}
+		};
 	}
 }
