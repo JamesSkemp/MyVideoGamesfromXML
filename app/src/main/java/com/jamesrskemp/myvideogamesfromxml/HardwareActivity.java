@@ -71,10 +71,10 @@ public class HardwareActivity extends ActionBarActivity {
 
 			Collections.sort(videoGameHardware, comparer);
 
-//			ArrayAdapter<VideoGameHardware> hardwareAdapter = new HardwareSelectionListAdapter(this, videoGameHardware);
+			ArrayAdapter<VideoGameHardware> hardwareAdapter = new HardwareSelectionListAdapter(this, videoGameHardware);
 
-//			ListView listView = (ListView)findViewById(R.id.list_hardware);
-//			listView.setAdapter(hardwareAdapter);
+			ListView listView = (ListView)findViewById(R.id.list_hardware);
+			listView.setAdapter(hardwareAdapter);
 		} catch (Exception ex) {
 			Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
 			Log.e(TAG, "Exception", ex);
