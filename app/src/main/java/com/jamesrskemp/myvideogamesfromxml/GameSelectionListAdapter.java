@@ -48,9 +48,15 @@ public class GameSelectionListAdapter extends ArrayAdapter<VideoGame> implements
 
 		TextView purchase = (TextView) convertView.findViewById(R.id.list_game_selection_purchase);
 		purchase.setText(item.purchaseDate + " " + item.purchasePrice + " " + item.purchasePlace);
+		if (purchase.getText() == "") {
+			purchase.setVisibility(View.GONE);
+		}
 
 		TextView notes = (TextView) convertView.findViewById(R.id.list_game_selection_notes);
-		notes.setText(item.notes);
+		notes.setText(item.notes.trim());
+		if (notes.getText() == "") {
+			notes.setVisibility(View.GONE);
+		}
 
 		return convertView;
 	}
