@@ -48,7 +48,11 @@ public class HardwareSelectionListAdapter extends ArrayAdapter<VideoGameHardware
 		title.append(" (Own: " + item.own + ")");
 
 		TextView purchase = (TextView) convertView.findViewById(R.id.list_hardware_selection_purchase);
-		purchase.setText(item.purchaseDate + " " + item.purchasePrice + " " + item.purchasePlace);
+		purchase.setText(
+				String.format("%s %s %s",
+						item.purchaseDate == null ? "" : item.purchaseDate,
+						item.purchasePrice == null ? "" : item.purchasePrice,
+						item.purchasePlace == null ? "" : item.purchasePlace).trim());
 
 		TextView notes = (TextView) convertView.findViewById(R.id.list_hardware_selection_notes);
 		notes.setText(item.notes.trim());
