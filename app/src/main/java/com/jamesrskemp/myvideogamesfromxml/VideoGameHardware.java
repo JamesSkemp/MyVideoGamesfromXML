@@ -8,7 +8,7 @@ public class VideoGameHardware {
 	public String name;
 	public String systemConsole;
 	public String systemVersion;
-	public boolean own;
+	public String own;
 	public String notes;
 	public String purchaseDate;
 	public String purchasePrice;

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -60,8 +62,19 @@ public class HardwareActivity extends ActionBarActivity {
 			File file = new File(filePath);
 			InputStream fis = null;
 			fis = new BufferedInputStream(new FileInputStream(file));
-			// TODO everything - includes creating xml parser, list adapter
+			VideoGameHardwareXmlParser parser = new VideoGameHardwareXmlParser();
 
+			videoGameHardware = parser.parse(fis);
+			Toast.makeText(this, "Video game hardware: " + videoGameHardware.size(), Toast.LENGTH_SHORT).show();
+
+			VideoGameHardwareComparer comparer = new VideoGameHardwareComparer();
+
+			Collections.sort(videoGameHardware, comparer);
+
+//			ArrayAdapter<VideoGameHardware> hardwareAdapter = new HardwareSelectionListAdapter(this, videoGameHardware);
+
+//			ListView listView = (ListView)findViewById(R.id.list_hardware);
+//			listView.setAdapter(hardwareAdapter);
 		} catch (Exception ex) {
 			Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
 			Log.e(TAG, "Exception", ex);
