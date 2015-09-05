@@ -18,6 +18,6 @@ public class VideoGameHardware {
 	}
 
 	public String system() {
-		return (systemConsole + " " + systemVersion).trim();
+		return String.format("%s %s", systemConsole == null ? "" : systemConsole, systemVersion == null ? "" : systemVersion).trim();
 	}
 }
