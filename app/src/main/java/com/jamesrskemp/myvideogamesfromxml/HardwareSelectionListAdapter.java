@@ -44,6 +44,9 @@ public class HardwareSelectionListAdapter extends ArrayAdapter<VideoGameHardware
 
 		TextView system = (TextView) convertView.findViewById(R.id.list_hardware_selection_system);
 		system.setText(item.system());
+		if (system.getText().length() == 0) {
+			//system.setVisibility(View.GONE);
+		}
 
 		title.append(" (Own: " + item.own + ")");
 
